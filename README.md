@@ -25,7 +25,7 @@ An animated **HTML vCard** showcasing my profile as a **Cybersecurity Researcher
 ---
 
 ## 🚀 Live Demo
-👉 [View vCard on GitHub Pages](https://anmamrtin.github.io/vcard)
+👉 [View vCard on GitHub Pages](https://mrkarthick-cool.github.io/MrkarthickR/)
 
 ---
 
@@ -37,7 +37,4 @@ An animated **HTML vCard** showcasing my profile as a **Cybersecurity Researcher
 
 ---
 
-## 🛠 Setup
-1. Clone the repo:
-   ```bash
-   git clone https://github.com/anmamrtin/vcard.git
+
