@@ -3,18 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>R Karthick | Cyber Security Specialist</title>
+  <title>R Karthick | Cybersecurity Business Card</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary: #00ffcc;
-      --secondary: #0088ff;
-      --bg-dark: #050b14;
-      --card-bg: rgba(10, 20, 38, 0.85);
-      --text-glow: 0 0 10px rgba(0, 255, 204, 0.6);
-    }
-
     * {
       box-sizing: border-box;
       margin: 0;
@@ -22,304 +14,264 @@
     }
 
     body {
-      font-family: 'Fira Code', monospace;
-      background-color: var(--bg-dark);
-      background-image: 
-        radial-gradient(circle at 50% 50%, rgba(0, 255, 204, 0.05) 0%, transparent 60%),
-        linear-gradient(rgba(0, 255, 204, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 255, 204, 0.03) 1px, transparent 1px);
-      background-size: 100% 100%, 30px 30px, 30px 30px;
+      background: #090e17;
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      perspective: 1200px;
-      overflow: hidden;
+      font-family: 'Rajdhani', sans-serif;
     }
 
-    .card-container {
-      width: 480px;
-      height: 280px;
+    /* Business Card Dimensions */
+    .cyber-card {
+      width: 600px;
+      height: 340px;
       position: relative;
-      transform-style: preserve-3d;
-      transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      cursor: pointer;
-    }
-
-    .card-container:hover {
-      transform: rotateY(180deg);
-    }
-
-    .side {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      border-radius: 16px;
-      padding: 24px;
-      background: var(--card-bg);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(0, 255, 204, 0.3);
-      box-shadow: 0 0 30px rgba(0, 0, 0, 0.8), inset 0 0 15px rgba(0, 255, 204, 0.1);
+      background: radial-gradient(circle at 50% 30%, #1a334d 0%, #08121e 70%, #03070d 100%);
+      border-radius: 12px;
       overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 162, 255, 0.3);
+      border: 1px solid rgba(0, 195, 255, 0.3);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #fff;
     }
 
-    /* Cyber Chip Decor */
-    .side::before {
-      content: '';
+    /* Circuit Board Overlay Graphic Effect */
+    .circuit-bg {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      height: 3px;
-      background: linear-gradient(90deg, transparent, var(--primary), transparent);
-      animation: scanline 3s linear infinite;
+      height: 100%;
+      background-image: 
+        radial-gradient(circle, rgba(0, 225, 255, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 225, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(rgba(0, 225, 255, 0.05) 1px, transparent 1px);
+      background-size: 20px 20px, 40px 40px, 40px 40px;
+      pointer-events: none;
     }
 
-    /* Front Side */
-    .front {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(0, 255, 204, 0.1);
-      border: 1px solid var(--primary);
-      color: var(--primary);
-      padding: 4px 10px;
-      border-radius: 20px;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      width: fit-content;
-    }
-
-    .badge-dot {
+    /* Glowing Nodes Effect */
+    .glow-node {
+      position: absolute;
       width: 6px;
       height: 6px;
-      background: var(--primary);
+      background: #00d2ff;
       border-radius: 50%;
-      box-shadow: var(--text-glow);
+      box-shadow: 0 0 10px #00d2ff, 0 0 20px #00d2ff;
+    }
+    .node-1 { top: 40px; left: 80px; }
+    .node-2 { top: 80px; right: 100px; }
+    .node-3 { bottom: 80px; left: 120px; }
+
+    /* Card Content Container */
+    .card-content {
+      position: relative;
+      z-index: 2;
+      padding: 24px 28px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 15px;
+      height: calc(100% - 45px);
     }
 
-    .identity h1 {
+    /* Left Column: Personal & Services Info */
+    .left-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .user-info h1 {
       font-family: 'Orbitron', sans-serif;
-      font-size: 26px;
-      color: #fff;
+      font-size: 22px;
+      font-weight: 900;
       letter-spacing: 1.5px;
+      color: #ffffff;
       text-transform: uppercase;
-      text-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+      text-shadow: 0 0 10px rgba(0, 210, 255, 0.6);
     }
 
-    .identity .title {
-      color: var(--primary);
+    .user-info .subtitle {
       font-size: 13px;
-      margin-top: 4px;
-      font-weight: 600;
-    }
-
-    .specialties {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .tag {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: #aaa;
-      padding: 4px 8px;
-      border-radius: 4px;
-      font-size: 10px;
-    }
-
-    .card-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding-top: 10px;
-      font-size: 10px;
-      color: #666;
-    }
-
-    /* Back Side */
-    .back {
-      transform: rotateY(180deg);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .back-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid rgba(0, 255, 204, 0.2);
-      padding-bottom: 8px;
-    }
-
-    .back-header h2 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 16px;
-      color: var(--primary);
+      color: #00d2ff;
+      font-weight: 700;
       letter-spacing: 1px;
+      margin-bottom: 8px;
     }
 
-    .info-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin: 10px 0;
+    .contact-details {
+      font-size: 11px;
+      color: #b0c4de;
+      line-height: 1.4;
+      margin-bottom: 12px;
     }
 
-    .info-item {
+    .contact-details i {
+      color: #00d2ff;
+      margin-right: 6px;
+      width: 12px;
+    }
+
+    /* Services Bullet List */
+    .services-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+
+    .services-list li {
+      font-size: 11px;
+      font-weight: 600;
+      color: #e0f2fe;
       display: flex;
       align-items: center;
-      gap: 12px;
-      font-size: 11px;
-      color: #d1d5db;
+      letter-spacing: 0.5px;
     }
 
-    .info-item i {
-      color: var(--primary);
-      font-size: 14px;
-      width: 16px;
+    .services-list li::before {
+      content: '■';
+      color: #00d2ff;
+      font-size: 8px;
+      margin-right: 8px;
+      text-shadow: 0 0 5px #00d2ff;
+    }
+
+    /* Right Column: Cyber Shield Emblem & QR */
+    .right-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
       text-align: center;
     }
 
-    .info-item a {
-      color: #d1d5db;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    .info-item a:hover {
-      color: var(--primary);
-    }
-
-    .actions {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 8px;
-    }
-
-    .social-btn {
-      width: 34px;
-      height: 34px;
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(0, 255, 204, 0.3);
-      color: var(--primary);
+    /* Metallic Cyber Shield Logo */
+    .cyber-shield {
+      position: relative;
+      width: 90px;
+      height: 90px;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      clip-path: polygon(50% 0%, 100% 20%, 100% 75%, 50% 100%, 0% 75%, 0% 20%);
       display: flex;
       justify-content: center;
       align-items: center;
-      text-decoration: none;
-      transition: all 0.3s;
+      box-shadow: inset 0 0 15px rgba(0, 210, 255, 0.8);
+      border: 2px solid #00d2ff;
     }
 
-    .social-btn:hover {
-      background: var(--primary);
-      color: var(--bg-dark);
-      box-shadow: var(--text-glow);
+    .cyber-shield i {
+      font-size: 42px;
+      color: #ffffff;
+      text-shadow: 0 0 12px rgba(0, 210, 255, 0.9);
     }
 
-    .whatsapp-btn {
-      flex: 1;
-      height: 34px;
-      background: linear-gradient(135deg, #25D366, #128C7E);
+    .logo-text {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 12px;
+      font-weight: 900;
       color: #fff;
-      border-radius: 8px;
+      letter-spacing: 1px;
+      margin-top: 4px;
+      text-shadow: 0 0 8px #00d2ff;
+    }
+
+    /* QR Code Styling */
+    .qr-box {
+      background: #ffffff;
+      padding: 5px;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+      border: 1px solid #00d2ff;
+    }
+
+    .qr-box img {
+      width: 65px;
+      height: 65px;
+      display: block;
+    }
+
+    /* Bottom Metallic Bar */
+    .bottom-bar {
+      position: relative;
+      z-index: 2;
+      height: 40px;
+      background: linear-gradient(90deg, #8a9ba8 0%, #de e6ed 50%, #8a9ba8 100%);
+      background: linear-gradient(180deg, #cfd8dc 0%, #90a4ae 100%);
+      border-top: 2px solid #00d2ff;
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 8px;
-      text-decoration: none;
-      font-size: 11px;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .tagline {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 12px;
       font-weight: 700;
-      box-shadow: 0 0 10px rgba(37, 211, 102, 0.3);
-      transition: all 0.3s;
-    }
-
-    .whatsapp-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 15px rgba(37, 211, 102, 0.6);
-    }
-
-    @keyframes scanline {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(100%); }
+      color: #0b1726;
+      letter-spacing: 2px;
+      text-transform: uppercase;
     }
   </style>
 </head>
 <body>
 
-  <div class="card-container">
-    <!-- FRONT -->
-    <div class="side front">
-      <div class="badge">
-        <span class="badge-dot"></span>
-        SYSTEM OPERATIONAL
+  <div class="cyber-card">
+    <div class="circuit-bg"></div>
+    <div class="glow-node node-1"></div>
+    <div class="glow-node node-2"></div>
+    <div class="glow-node node-3"></div>
+
+    <!-- Main Front Content -->
+    <div class="card-content">
+      
+      <!-- Left Info Side -->
+      <div class="left-col">
+        <div class="user-info">
+          <h1>MRKARTHICK</h1>
+          <div class="subtitle">CYBERSECURITY RESEARCHER</div>
+          
+          <div class="contact-details">
+            <p><i class="fas fa-envelope"></i> mrkarthick246@gmail.com</p>
+            <p><i class="fas fa-phone"></i> +91 6303350725</p>
+            <p><i class="fas fa-location-dot"></i> Tirupati District, AP, 517541</p>
+            <p><i class="fas fa-globe"></i> cyberwarriorsociety.blogspot.com</p>
+          </div>
+        </div>
+
+        <!-- Cyber Services Bullet Points -->
+        <ul class="services-list">
+          <li>WEB PENETRATION TESTING</li>
+          <li>BUG HUNTING & VULN ASSESSMENT</li>
+          <li>CYBER AWARENESS TRAINING</li>
+          <li>OSINT & SECURITY RESEARCH</li>
+        </ul>
       </div>
 
-      <div class="identity">
-        <h1>Mrkarthick</h1>
-        <div class="title">&gt; Cybersecurity Researcher</div>
+      <!-- Right Logo & QR Side -->
+      <div class="right-col">
+        <div>
+          <div class="cyber-shield">
+            <i class="fas fa-user-shield"></i>
+          </div>
+          <div class="logo-text">CYBER SECURITY</div>
+        </div>
+
+        <!-- Dynamic WhatsApp QR Code -->
+        <div class="qr-box">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://wa.me/916303350725" alt="Scan QR">
+        </div>
       </div>
 
-      <div class="specialties">
-        <span class="tag">Web Pentesting</span>
-        <span class="tag">Bug Hunting</span>
-        <span class="tag">OSINT</span>
-        <span class="tag">Cyber Awareness</span>
-      </div>
-
-      <div class="card-footer">
-        <span>ID: 0x8F92A</span>
-        <span>HOVER TO DECRYPT &gt;&gt;</span>
-      </div>
     </div>
 
-    <!-- BACK -->
-    <div class="side back">
-      <div class="back-header">
-        <h2>CONTACT MATRIX</h2>
-        <i class="fas fa-microchip" style="color: var(--primary);"></i>
-      </div>
-
-      <div class="info-list">
-        <div class="info-item">
-          <i class="fas fa-envelope"></i>
-          <a href="mailto:mrkarthick246@gmail.com">mrkarthick246@gmail.com</a>
-        </div>
-        <div class="info-item">
-          <i class="fas fa-location-dot"></i>
-          <span>Tirupati District, Andhra Pradesh</span>
-        </div>
-        <div class="info-item">
-          <i class="fas fa-shield-halved"></i>
-          <a href="https://cyberwarriorsociety.blogspot.com/2025/11/t.m.html" target="_blank">cyberwarriorsociety.blogspot.com</a>
-        </div>
-      </div>
-
-      <div class="actions">
-        <div class="social-links">
-          <a href="https://linkedin.com/in/mr-karthick" target="_blank" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://github.com/mrkarthick-cool" target="_blank" class="social-btn"><i class="fab fa-github"></i></a>
-        </div>
-        <a href="https://wa.me/6303350725" target="_blank" class="whatsapp-btn">
-          <i class="fab fa-whatsapp"></i> SECURE CHAT
-        </a>
-      </div>
+    <!-- Bottom Metallic Accent Bar -->
+    <div class="bottom-bar">
+      <span class="tagline">PROTECTING WHAT MATTERS MOST</span>
     </div>
   </div>
 
