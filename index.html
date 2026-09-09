@@ -3,63 +3,95 @@
 <head>
   <meta charset="UTF-8">
   <title>Mrkarthick | Cybersecurity vCard</title>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364);
       color: #fff;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
       margin: 0;
+      overflow: hidden;
     }
     .vcard {
-      background: rgba(0,0,0,0.7);
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
-      width: 350px;
+      background: rgba(0,0,0,0.8);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px #00e0ff;
       text-align: center;
-      animation: fadeInUp 1.5s ease;
+      width: 400px;
+      animation: floatUp 2s ease forwards;
+      position: relative;
     }
     .vcard h1 {
+      font-size: 28px;
       margin: 0;
-      font-size: 24px;
       color: #00e0ff;
+      text-shadow: 0 0 10px #00e0ff;
+      animation: glowPulse 2s infinite alternate;
     }
     .vcard p {
-      margin: 8px 0;
-      font-size: 14px;
+      margin: 10px 0;
+      font-size: 15px;
+      color: #ddd;
+    }
+    .links {
+      margin-top: 20px;
     }
     .links a {
       display: inline-block;
-      margin: 8px;
-      text-decoration: none;
+      margin: 10px;
+      font-size: 20px;
       color: #00e0ff;
-      transition: transform 0.3s;
+      transition: transform 0.4s, color 0.4s;
     }
     .links a:hover {
-      transform: scale(1.2);
+      transform: scale(1.3) rotate(10deg);
       color: #ff4081;
     }
     .whatsapp {
       display: inline-block;
-      margin-top: 15px;
-      padding: 10px 20px;
+      margin-top: 25px;
+      padding: 12px 25px;
       background: #25D366;
       color: #fff;
-      border-radius: 8px;
+      border-radius: 10px;
       text-decoration: none;
       font-weight: bold;
-      transition: background 0.3s;
+      font-size: 16px;
+      transition: background 0.3s, transform 0.3s;
     }
     .whatsapp:hover {
       background: #128C7E;
+      transform: scale(1.1);
     }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
+    /* Animations */
+    @keyframes floatUp {
+      from { opacity: 0; transform: translateY(50px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes glowPulse {
+      from { text-shadow: 0 0 10px #00e0ff; }
+      to { text-shadow: 0 0 25px #00e0ff, 0 0 40px #00e0ff; }
+    }
+    /* Background animation */
+    body::before {
+      content: "";
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(from 180deg, #00e0ff, #ff4081, #00e0ff);
+      animation: spin 20s linear infinite;
+      z-index: -1;
+      opacity: 0.15;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
   </style>
 </head>
@@ -72,12 +104,12 @@
     <p>Location: Lakahmipuram Village, Varadaiahpalem Mandal,<br>Tirupati District, Andhra Pradesh 517541</p>
     
     <div class="links">
-      <a href="https://linkedin.com/in/mr-karthick" target="_blank">LinkedIn</a>
-      <a href="https://github.com/mrkarthick-cool" target="_blank">GitHub</a>
-      <a href="https://cyberwarriorsociety.blogspot.com/2025/11/t.m.html" target="_blank">Blog</a>
+      <a href="https://linkedin.com/in/mr-karthick" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/mrkarthick-cool" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://cyberwarriorsociety.blogspot.com/2025/11/t.m.html" target="_blank"><i class="fas fa-blog"></i></a>
     </div>
     
-    <a class="whatsapp" href="https://wa.me/6303350725" target="_blank">Chat on WhatsApp</a>
+    <a class="whatsapp" href="https://wa.me/6303350725" target="_blank"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
   </div>
 </body>
 </html>
